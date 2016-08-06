@@ -69,7 +69,7 @@ gulp.task('css', function() {
 //For js
 gulp.task('js', function() {
   // Order By initi, filters, controllers...
-  return gulp.src(['src/app.js','src/filters.js', 'src/controllers/carnets.controllers.js'])
+  return gulp.src(['src/app.js','src/filters.js', 'src/controllers/header.controllers.js', 'src/controllers/carnets.controllers.js'])
   .pipe(plumber({
     errorHandler: notify.onError("Error: <%= error.message %>")
   }))
@@ -97,5 +97,5 @@ gulp.task('default', ['css','js', 'browser-sync'], function () {
     gulp.watch("assets/sass/*.sass", ['css']);
     gulp.watch("assets/images/", ['images']);
     gulp.watch(["src/*.js","src/controllers/*.js"], ['js']);
-    gulp.watch("*.html").on('change', browserSync.reload); //reload on HTML
+    gulp.watch(["*.html", "partials/*.html"]).on('change', browserSync.reload); //reload on HTML
 });

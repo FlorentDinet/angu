@@ -1,6 +1,6 @@
 
  app.controller('UsersCtrl', ['$scope','$filter','$http', function($scope, $filter,$http){
-
+  
 
     // Bonus: charger les users by JSON
     // //edit from https://jsonblob.com/57a59a90e4b0dc55a4eae792
@@ -40,11 +40,15 @@
          }
 
          // MAJ nb users
-         $scope.nbUsers = rangeFilter.length;
+         if( rangeFilter instanceof Array ) {
+           $scope.nbUsers = rangeFilter.length;
+           return _.reduce(rangeFilter, function(memo, num){
+             return memo + num.age;
+           },0) / (rangeFilter.length === 0 ? 1 : rangeFilter.length);
+         }
 
-          return _.reduce(rangeFilter, function(memo, num){
-            return memo + num.age;
-         },0) / (rangeFilter.length === 0 ? 1 : rangeFilter.length);
+         return rangeFilter;
+
        };
 
        $scope.removeUser = function(user){

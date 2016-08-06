@@ -1,0 +1,47 @@
+
+<!-- Filters -->
+ <section id="filters">
+      <h4>Rechercher un personnage</h4>
+       <p><span ng-if="users.length < 1">Plus aucun utilisateur</span><span ng-show="users.length > 0">Nombre d'utilisateurs : {{ nbUsers }} utilisateur<span ng-show="users.length > 1">s</span></span></p>
+       <p><span ng-show="users.length > 0">Moyenne d'age : {{ moyenneAge()|number:0 }} ans.
+         <span ng-show="tousMineur()">Il y a que des mineurs.</span></span></p>
+       <div class="row s12">
+         <div class="col s2">
+            <input name="ville" type="radio" id="all" ng-model="$parent.cities"/>
+            <label for="all">Toutes</label>
+         </div>
+          <div class="col s2">
+             <input name="ville" type="radio" id="Lyon" value="Lyon" ng-model="$parent.cities"/>
+             <label for="Lyon">Lyon</label>
+          </div>
+          <div class="col s2">
+             <input name="ville" type="radio" id="Marseille" value="Marseille" ng-model="$parent.cities" />
+             <label for="Marseille">Marseille</label>
+          </div>
+          <div class="col s2">
+             <input name="ville" type="radio" id="Paris" value="Paris" ng-model="$parent.cities"/>
+             <label for="Paris">Paris</label>
+          </div>
+          <div class="col s4">
+            <span class="range-field">
+              <label for="test5">Note au bac</label>
+              <input type="range" nouislider id="test5" min="0" max="20" ng-model="$parent.notesBac" />
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+           <div class="row">
+             <div class="col s8">
+               <p class="col s2" ng-repeat="tranche in $parent.tranches">
+                  <input  ng-model="tranche.checked" value="{{ tranche.data }}"  type="checkbox" id="{{ tranche.data }}" />
+                  <label for="{{ tranche.data }}">{{ tranche.data }} ans</label>
+                </p>
+             </div>
+             <div class="col s3">
+              <label for="inputCreated">Date de naissance</label>
+              <input input-date  placeholder="dd/mm/YYYY" type="text" name="created" id="inputCreated" ng-model="$parent.date"  container=""format="dd/mm/yyyy" />
+             </div>
+           </div>
+</section>
+  <!-- end filters -->

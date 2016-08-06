@@ -1,0 +1,62 @@
+<!-- Formulaire d'ajout -->
+<section class="row">
+				<h3><i class="material-icons">person_add</i> Créer un personnage</h3>
+			 <form class="col s12" ng-submit="add()">
+					 <div class="row">
+						 <div class="input-field col s6">
+							 <input ng-model="sexe" id="mec" value="true" name="sexe" type="radio" class="validate">
+							 <label for="mec">Homme</label>
+							 <input  ng-model="sexe" id="nana"  value="false" name="sexe" type="radio" class="validate">
+							 <label for="nana">Femme</label>
+						 </div>
+						 <div class="clearfix clear"> </div>
+						 <div class="input-field col s6">
+							 <input ng-model="prenom" ng-trim="true" id="first_name" type="text" class="validate">
+							 <label for="first_name">First Name</label>
+						 </div>
+						 <div class="input-field col s6">
+							 <input ng-model="nom" ng-trim="true" id="last_name" type="text" class="validate">
+							 <label for="last_name">Lastname</label>
+						 </div>
+						 <div class="input-field col s3">
+							 <input ng-model="age" ng-trim="true" id="age" type="text" class="validate">
+							 <label for="age">Age</label>
+						 </div>
+						 <div class="input-field col s9">
+							 <input ng-model="photo" ng-trim="true" id="photo" type="text" class="validate">
+							 <label for="photo">Photo</label>
+						 </div>
+
+
+						 <div class="row">
+							 <div class="input-field col s6">
+								 <input ng-model="city" id="lyon" value="Lyon" name="city" type="radio" class="validate">
+								 <label for="lyon">Lyon</label>
+								 <input ng-model="city" id="paris" value="Paris" name="city" type="radio" class="validate">
+								 <label for="paris">Paris</label>
+								 <input ng-model="city" id="marseille" value="Marseille" name="city" type="radio" class="validate">
+								 <label for="marseille">Marseille</label>
+							 </div>
+							 <div class="input-field col s3">
+								 <input ng-model="dob" ng-trim="true" id="dob" placeholder="date de naissance" type="date" class="validate">
+							 </div>
+							 <div class="input-field col s3">
+								 <input ng-model="noteauBac" ng-trim="true" id="bac" type="text" class="validate">
+								 <label for="bac">Note Bac</label>
+							 </div>
+
+						 </div>
+
+						 <div class="input-field col s12">
+							<i class="material-icons">mode_edit</i>
+							<textarea ng-model="biographie" id="icon_prefix2" class="materialize-textarea" placeholder="sa bio..."></textarea>
+						</div>
+
+						 <div class="input-field col 12">
+							<button type="submit" class="waves-effect waves-light btn" name="button">Enregistrer cet utilisaturs</button>
+						 </div>
+					 </div>
+				 </form>
+
+		 </section>
+<!-- end display form -->

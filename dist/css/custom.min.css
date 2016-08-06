@@ -1,0 +1,18 @@
+#users .card {
+  -webkit-transition: color 0.6s, background-color 0.3s;
+  -moz-transition: color 0.6s, background-color 0.3s;
+  -ms-transition: color 0.6s, background-color 0.3s;
+  transition: color 0.6s, background-color 0.3s;
+}
+#users .card.ng-enter {
+  -webkit-animation: tada 1s;
+  -moz-animation: tada 1s;
+  -ms-animation: tada 1s;
+  animation: tada 1s;
+}
+#users .card.ng-leave {
+  -webkit-animation: none;
+  -moz-animation: none;
+  -ms-animation: none;
+  animation: none;
+}

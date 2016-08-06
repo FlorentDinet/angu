@@ -28,29 +28,34 @@ Install all moduiles Angular you need:
 
 Gulp for workin environment
 ===================
+Launch npm install
 
-Launch bower init .
-Install Jquery & Moment with Bower
-Install all moduiles Angular you need:
-+ angular-animate pours les animations
-+ angular-aria pour les aria
-+ angular-cookies pour lire er ecrire des cookis
-+ angular-material pour les composant Material d'ANgular
-+ angular-messages  pour les messages de validation formulaires
-+ angular-resource: pour gérer le RESTFUll
-+ angular-sanitize: pou satanizer le HTML ds le JS
-+ angular-translate: traduit en internationnalisation
 
+Angular Materilizecss
+===================
+
+https://krescruz.github.io/angular-materialize/
 
 
 Angular Best Modules
 ===================
 + i18n
 + Animates
++ Form validation
++ Angular UI https://angular-ui.github.io/
 
 
 Angular Datas on ./datas
 ===================
+
+Idées
+===================
+
++ Like / Dislike one time
++ Favorite in memory Local STorage
++ Nosql Intercations
++ Playlist de sound SouncCloud GOT
+
 
 
 Angular StyleGuide
