@@ -1,4 +1,5 @@
 
+
 <!-- Filters -->
  <section id="filters">
       <h4>Rechercher un personnage</h4>
@@ -25,7 +26,7 @@
           <div class="col s4">
             <span class="range-field">
               <label for="test5">Note au bac</label>
-              <input type="range" nouislider id="test5" min="0" max="20" ng-model="$parent.notesBac" />
+              <input type="range"  id="test5" min="0" max="20" ng-model="$parent.notesBac" />
             </span>
           </div>
         </div>
@@ -40,8 +41,20 @@
              </div>
              <div class="col s3">
               <label for="inputCreated">Date de naissance</label>
-              <input input-date  placeholder="dd/mm/YYYY" type="text" name="created" id="inputCreated" ng-model="$parent.date"  container=""format="dd/mm/yyyy" />
+              <input input-date  placeholder="dd/mm/YYYY" type="text" name="created" id="inputCreated" ng-model="$parent.date" format="dd/mm/yyyy"
+          />
              </div>
            </div>
+           </div>
+           <div input-field>
+              <select class="" id="tri"  ng-model="$parent.tri" material-select watch>
+                  <option value="">Trié les personnages</option>
+                  <option value="nom">Nom</option>
+                  <option value="age">Age</option>
+                  <option value="noteBac">Note au Bac</option>
+                  <option value="ville">Ville</option>
+              </select>
+            <label for="tri"></label>
+          </div>
 </section>
   <!-- end filters -->

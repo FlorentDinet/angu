@@ -1,55 +1,105 @@
+
 <!-- Formulaire d'ajout -->
+
 <section class="row">
 				<h3><i class="material-icons">person_add</i> Créer un personnage</h3>
-			 <form class="col s12" ng-submit="add()">
+			 <form name="myForm" class="col s12" ng-submit="add(myForm)" novalidate>
 					 <div class="row">
-						 <div class="input-field col s6">
+						 <div class="col s12">
 							 <input ng-model="sexe" id="mec" value="true" name="sexe" type="radio" class="validate">
 							 <label for="mec">Homme</label>
 							 <input  ng-model="sexe" id="nana"  value="false" name="sexe" type="radio" class="validate">
 							 <label for="nana">Femme</label>
 						 </div>
-						 <div class="clearfix clear"> </div>
-						 <div class="input-field col s6">
-							 <input ng-model="prenom" ng-trim="true" id="first_name" type="text" class="validate">
+						 <div class="input-field col s6" ng-class="{'has-error': myForm.prenom.$invalid }">
+							 <input pattern="^[^@0-9]+$" ng-model="prenom" name="prenom"  required
+							 ng-minlength="3" ng-maxlength="20"  ng-trim="true" id="first_name" type="text" class="validate">
 							 <label for="first_name">First Name</label>
+
+								<!-- without ngMessages -->
+								<!-- <div ng-messages="myForm.prenom.$error" role="alert">
+							    <div ng-message="required">Un prénom stp...</div>
+							    <div ng-message="minlength">Votre prénom doit faire minimum 3 caractères...</div>
+							  </div> -->
+							 <!-- <div ng-if="myForm.prenom.$error.required" class="error">
+								 requis!
+							 </div>
+							 <div ng-if="myForm.prenom.$error.minlength" class="error">
+								trop court!
+							 </div> -->
+
+							 <!-- with ngMessages -->
+							 <!-- <div ng-messages="myForm.prenom.$error">
+							    <p ng-message="required">Your message here.</p>
+							    <p ng-message="minlength">Your message is too short....</p>
+							</div> -->
+
+							<div class="help-block"  ng-messages="myForm.prenom.$error" ng-if="myForm.$submitted">
+							    <div ng-messages-include="./partials/erreurs.html"></div>
+							</div>
+
+
 						 </div>
 						 <div class="input-field col s6">
-							 <input ng-model="nom" ng-trim="true" id="last_name" type="text" class="validate">
+							 <input ng-model="nom" name="nom"  required ng-minlength="3" ng-maxlength="20"  ng-trim="true" id="last_name" type="text" class="validate">
 							 <label for="last_name">Lastname</label>
+
+							 <div class="help-block"  ng-messages="myForm.nom.$error" ng-if="myForm.$submitted">
+									 <div ng-messages-include="./partials/erreurs.html"></div>
+							 </div>
 						 </div>
 						 <div class="input-field col s3">
-							 <input ng-model="age" ng-trim="true" id="age" type="text" class="validate">
+							 <input ng-model="age" pattern="/^[0-9]{1,2}$/" name="age" ng-trim="true" id="age" type="number" required class="validate">
 							 <label for="age">Age</label>
+							 <div class="help-block"  ng-messages="myForm.age.$error" ng-if="myForm.$submitted">
+									 <div ng-messages-include="./partials/erreurs.html"></div>
+							 </div>
 						 </div>
 						 <div class="input-field col s9">
-							 <input ng-model="photo" ng-trim="true" id="photo" type="text" class="validate">
+							 <input ng-model="photo" name="photo" pattern="/(https?:\/\/.*\.(?:png|jpe?g))/i" ng-trim="true" id="photo" required type="url" class="validate">
 							 <label for="photo">Photo</label>
+							 <div class="help-block"  ng-messages="myForm.photo.$error" ng-if="myForm.$submitted">
+									<div ng-messages-include="./partials/erreurs.html"></div>
+							</div>
 						 </div>
 
 
 						 <div class="row">
 							 <div class="input-field col s6">
-								 <input ng-model="city" id="lyon" value="Lyon" name="city" type="radio" class="validate">
+								 <input required ng-model="city" id="lyon" value="Lyon" name="city" type="radio" class="validate">
 								 <label for="lyon">Lyon</label>
-								 <input ng-model="city" id="paris" value="Paris" name="city" type="radio" class="validate">
+								 <input required ng-model="city" id="paris" value="Paris" name="city" type="radio" class="validate">
 								 <label for="paris">Paris</label>
-								 <input ng-model="city" id="marseille" value="Marseille" name="city" type="radio" class="validate">
+								 <input required ng-model="city" id="marseille" value="Marseille" name="city" type="radio" class="validate">
 								 <label for="marseille">Marseille</label>
+
+							 </div>
+							 <div class="help-block"  ng-messages="myForm.city.$error" ng-if="myForm.$submitted">
+									 <div ng-messages-include="./partials/erreurs.html"></div>
 							 </div>
 							 <div class="input-field col s3">
-								 <input ng-model="dob" ng-trim="true" id="dob" placeholder="date de naissance" type="date" class="validate">
+								 <input ng-model="dob" required ng-trim="true" id="dob" name="dob" placeholder="date de naissance" type="date" class="validate">
+								 <div class="help-block"  ng-messages="myForm.dob.$error" ng-if="myForm.$submitted">
+									 <div ng-messages-include="./partials/erreurs.html"></div>
+							 	</div>
 							 </div>
 							 <div class="input-field col s3">
-								 <input ng-model="noteauBac" ng-trim="true" id="bac" type="text" class="validate">
+								 <input required ng-model="noteauBac" name="noteauBac" ng-trim="true" id="bac" type="number" class="validate">
 								 <label for="bac">Note Bac</label>
+								 <div class="help-block"  ng-messages="myForm.noteauBac.$error" ng-if="myForm.$submitted">
+									 <div ng-messages-include="./partials/erreurs.html"></div>
+							 	</div>
 							 </div>
 
 						 </div>
 
 						 <div class="input-field col s12">
 							<i class="material-icons">mode_edit</i>
-							<textarea ng-model="biographie" id="icon_prefix2" class="materialize-textarea" placeholder="sa bio..."></textarea>
+							<textarea required ng-minlength="10" ng-model="biographie" name="biographie" id="icon_prefix2" class="materialize-textarea" placeholder="sa bio..."></textarea>
+
+							<div class="help-block"  ng-messages="myForm.biographie.$error" ng-if="myForm.$submitted">
+								<div ng-messages-include="./partials/erreurs.html"></div>
+						 </div>
 						</div>
 
 						 <div class="input-field col 12">

@@ -1,6 +1,9 @@
 
  app.controller('UsersCtrl', ['$scope','$filter','$http', function($scope, $filter,$http){
-  
+
+
+   var currentTime = new Date();
+
 
     // Bonus: charger les users by JSON
     // //edit from https://jsonblob.com/57a59a90e4b0dc55a4eae792
@@ -18,6 +21,8 @@
         {"data": "25-45", "checked" : false},
         {"data": "45-60", "checked" : false},
       ];
+
+      $scope.date = "01/01/1950";
 
      $scope.tousMineur = function (){
         return _.every($scope.users,function(user) {return user.age < 18;})
@@ -56,7 +61,9 @@
              $scope.users.splice(index, 1);
        }
 
-       $scope.add = function(){
+       $scope.add = function(form){
+         if (form.$valid) {
+
            $scope.users.push({
               nom: $scope.nom,
               prenom:  $scope.prenom,
@@ -71,6 +78,7 @@
 
            $scope.nom =  $scope.sexe = $scope.ville =  $scope.biographie = $scope.prenom = $scope.age = $scope.photo = $scope.dob = $scope.noteauBac = "";
 
+         }
 
 
        }

@@ -16,3 +16,12 @@
   -ms-animation: none;
   animation: none;
 }
+/* invalid color */
+  .input-field input[type=text].ng-invalid {
+    border-bottom: 1px solid #F44336;
+    box-shadow: 0 1px 0 0 #F44336;
+  }
+  .help-block{
+    color: #F44336;
+    font-size: 12px;
+  }

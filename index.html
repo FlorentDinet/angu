@@ -6,8 +6,10 @@
       <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
       <link rel="stylesheet" href="bower_components/animate.css/animate.min.css" charset="utf-8">
-      <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css" charset="utf-8">
+
+
 
       <!-- My Css -->
       <link rel="stylesheet" href="./dist/css/style.min.css" media="screen" title="no title" charset="utf-8">
@@ -57,7 +59,7 @@
         <!-- display all users -->
          <section class="row" ng-show="nbUsers > 0">
            <div class="blog-card" id="users">
-             <div class="card z-depth-2 sticky-action col s3  sticky-action" ng-repeat="user in users | naissance:date | filter:cities|range:tranches|notes:notesBac|filter:search">
+             <div class="card z-depth-2 sticky-action col s3  sticky-action" ng-repeat="user in users | naissance:date | filter:cities|range:tranches|notes:notesBac|filter:search|orderBy:tri">
 
                 <div class="card-image waves-effect waves-block waves-light">
                    <img class="responsive-img valign" src="{{ user.photo }}" alt="blog-img">
@@ -148,13 +150,7 @@
    <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 
     <!-- Librairie Angular -->
-    <script src="bower_components/angular/angular.min.js" charset="utf-8"></script>
-
-
-    <!-- Librairie Picker -->
-    <script src="bower_components/pickadate/lib/compressed/picker.js" charset="utf-8"></script>
-    <script src="bower_components/pickadate/lib/compressed/picker.date.js" charset="utf-8"></script>
-
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 
     <!-- Librairie Angular i18n -->
     <script src="bower_components/angular-i18n/angular-locale_fr-fr.js" charset="utf-8"></script>
@@ -162,19 +158,21 @@
     <!-- Librairie Angular Animate -->
     <script src="bower_components/angular-animate/angular-animate.js" charset="utf-8"></script>
 
+
+    <!-- Librairie Angular Messages -->
+    <script src="bower_components/angular-messages/angular-messages.min.js" charset="utf-8"></script>
+
+
     <!-- Librairie Moment -->
     <script src="bower_components/moment/min/moment-with-locales.min.js" charset="utf-8"></script>
     <!-- Librairie Underscore -->
     <script src="bower_components/underscore/underscore-min.js" charset="utf-8"></script>
-    <!-- Librairie Jquery -->
-    <script src="bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
-    <!-- Librairie Materialize -->
-    <script src="bower_components/materialize/dist/js/materialize.min.js" charset="utf-8"></script>
 
+    <!-- Librairie Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js" charset="utf-8"></script>
 
     <!-- Librairie Materializecss-->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.1.9/angular-materialize.min.js"></script>
-
+    <script type="text/javascript" src="http://krescruz.github.io/angular-materialize/src/angular-materialize.js"></script>
 
     <!-- GMAP -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAZnaZBXLqNBRXjd-82km_NO7GUItyKek" charset="utf-8"></script>
