@@ -1,6 +1,9 @@
 <div class="map" ng-controller="MapCtrl">
 
     <h3>Carte du personnages</h3>
+    <a href="#/users" class="waves-effect waves-light btn-large  teal lighten-1"><i class="material-icons">undo</i> Revenir aux personnages</a>
+
+
     <ui-gmap-google-map center='map.center' zoom='map.zoom'>
      <ui-gmap-markers click="clickMarker" icon="'icon'" models="markers" coords="'coord'">
      </ui-gmap-markers>

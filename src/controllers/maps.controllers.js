@@ -5,7 +5,7 @@ app.controller('MapsCtrl', ['$scope','$http',function($scope, $http){
       {
         center:
         { latitude: 45.750000, longitude: 4.850000 },
-        zoom: 11
+        zoom: 10
       };
 
     $scope.markers = [];
