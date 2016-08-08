@@ -3,16 +3,33 @@
 
 <section class="row">
 				<h3><i class="material-icons">person_add</i> Créer un personnage</h3>
+
+
+
 			 <form name="myForm" class="col s12" ng-submit="add(myForm)" novalidate>
+
+
+						 <ul>
+							 <div  ng-repeat="e in errors" id="card-alert" class="card red">
+                <div class="card-content white-text">
+                  <p>{{ e.$name }} has an error: <strong>{{ key }}</strong>.</p>
+                </div>
+                <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+						 </ul>
+
 					 <div class="row">
-						 <div class="col s12">
-							 <input ng-model="sexe" id="mec" value="true" name="sexe" type="radio" class="validate">
+						 <div class="input-field col s4">
+							 <div class="input-field col s6" ng-class="{'has-error': myForm.sexe.$invalid }"></div>
+							 <input ng-model="$parent.sexe" id="mec" value="true" name="sexe" type="radio" class="validate">
 							 <label for="mec">Homme</label>
-							 <input  ng-model="sexe" id="nana"  value="false" name="sexe" type="radio" class="validate">
+							 <input  ng-model="$parent.sexe" id="nana"  value="false" name="sexe" type="radio" class="validate">
 							 <label for="nana">Femme</label>
 						 </div>
-						 <div class="input-field col s6" ng-class="{'has-error': myForm.prenom.$invalid }">
-							 <input pattern="^[^@0-9]+$" ng-model="prenom" name="prenom"  required
+						 <div class="input-field col s4">
+							 <input pattern="^[^@0-9]+$" ng-model="$parent.prenom" name="prenom"  required
 							 ng-minlength="3" ng-maxlength="20"  ng-trim="true" id="first_name" type="text" class="validate">
 							 <label for="first_name">First Name</label>
 
@@ -37,26 +54,29 @@
 							<div class="help-block"  ng-messages="myForm.prenom.$error" ng-if="myForm.$submitted">
 							    <div ng-messages-include="./partials/erreurs.html"></div>
 							</div>
+						</div>
 
 
-						 </div>
-						 <div class="input-field col s6">
-							 <input ng-model="nom" name="nom"  required ng-minlength="3" ng-maxlength="20"  ng-trim="true" id="last_name" type="text" class="validate">
+						 <div class="input-field col s4">
+							 <input ng-model="$parent.nom" name="nom"  required ng-minlength="3" ng-maxlength="20"  ng-trim="true" id="last_name" type="text" class="validate">
 							 <label for="last_name">Lastname</label>
 
 							 <div class="help-block"  ng-messages="myForm.nom.$error" ng-if="myForm.$submitted">
 									 <div ng-messages-include="./partials/erreurs.html"></div>
 							 </div>
 						 </div>
+
+					 </div>
+
 						 <div class="input-field col s3">
-							 <input ng-model="age" pattern="/^[0-9]{1,2}$/" name="age" ng-trim="true" id="age" type="number" required class="validate">
+							 <input ng-model="$parent.age" ng-minlength="1" ng-maxlength="2"  pattern="^[0-9]{1,2}$" name="age" ng-trim="true" id="age" type="text" required class="validate">
 							 <label for="age">Age</label>
 							 <div class="help-block"  ng-messages="myForm.age.$error" ng-if="myForm.$submitted">
 									 <div ng-messages-include="./partials/erreurs.html"></div>
 							 </div>
 						 </div>
 						 <div class="input-field col s9">
-							 <input ng-model="photo" name="photo" pattern="/(https?:\/\/.*\.(?:png|jpe?g))/i" ng-trim="true" id="photo" required type="url" class="validate">
+							 <input ng-model="$parent.photo" name="photo" pattern="/^https?:\/\/.*\.(png|gif|jpe?g)$/i" ng-trim="true" id="photo" required type="text" class="validate">
 							 <label for="photo">Photo</label>
 							 <div class="help-block"  ng-messages="myForm.photo.$error" ng-if="myForm.$submitted">
 									<div ng-messages-include="./partials/erreurs.html"></div>
@@ -66,11 +86,11 @@
 
 						 <div class="row">
 							 <div class="input-field col s6">
-								 <input required ng-model="city" id="lyon" value="Lyon" name="city" type="radio" class="validate">
+								 <input required ng-model="$parent.city" id="lyon" value="Lyon" name="city" type="radio" class="validate">
 								 <label for="lyon">Lyon</label>
-								 <input required ng-model="city" id="paris" value="Paris" name="city" type="radio" class="validate">
+								 <input required ng-model="$parent.city" id="paris" value="Paris" name="city" type="radio" class="validate">
 								 <label for="paris">Paris</label>
-								 <input required ng-model="city" id="marseille" value="Marseille" name="city" type="radio" class="validate">
+								 <input required ng-model="$parent.city" id="marseille" value="Marseille" name="city" type="radio" class="validate">
 								 <label for="marseille">Marseille</label>
 
 							 </div>
@@ -78,13 +98,13 @@
 									 <div ng-messages-include="./partials/erreurs.html"></div>
 							 </div>
 							 <div class="input-field col s3">
-								 <input ng-model="dob" required ng-trim="true" id="dob" name="dob" placeholder="date de naissance" type="date" class="validate">
+								 <input ng-model="$parent.dob" required ng-trim="true" id="dob" name="dob" placeholder="date de naissance" type="date" class="validate">
 								 <div class="help-block"  ng-messages="myForm.dob.$error" ng-if="myForm.$submitted">
 									 <div ng-messages-include="./partials/erreurs.html"></div>
 							 	</div>
 							 </div>
 							 <div class="input-field col s3">
-								 <input required ng-model="noteauBac" name="noteauBac" ng-trim="true" id="bac" type="number" class="validate">
+								 <input required ng-model="$parent.noteauBac" name="noteauBac" ng-trim="true" id="bac" type="text" class="validate">
 								 <label for="bac">Note Bac</label>
 								 <div class="help-block"  ng-messages="myForm.noteauBac.$error" ng-if="myForm.$submitted">
 									 <div ng-messages-include="./partials/erreurs.html"></div>
@@ -95,7 +115,7 @@
 
 						 <div class="input-field col s12">
 							<i class="material-icons">mode_edit</i>
-							<textarea required ng-minlength="10" ng-model="biographie" name="biographie" id="icon_prefix2" class="materialize-textarea" placeholder="sa bio..."></textarea>
+							<textarea required ng-minlength="10" ng-model="$parent.biographie" name="biographie" id="icon_prefix2" class="materialize-textarea" placeholder="sa bio..."></textarea>
 
 							<div class="help-block"  ng-messages="myForm.biographie.$error" ng-if="myForm.$submitted">
 								<div ng-messages-include="./partials/erreurs.html"></div>
@@ -103,7 +123,7 @@
 						</div>
 
 						 <div class="input-field col 12">
-							<button type="submit" class="waves-effect waves-light btn" name="button">Enregistrer cet utilisaturs</button>
+							<button type="submit" class="waves-effect waves-light btn" name="button">Enregistrer cet utilisateurs</button>
 						 </div>
 					 </div>
 				 </form>

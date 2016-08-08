@@ -62,7 +62,9 @@
        }
 
        $scope.add = function(form){
-         if (form.$valid) {
+
+         console.log($scope.nom,$scope.age,$scope.dob,$scope.photo, $scope.noteauBac,$scope.sexe, $scope.ville,  $scope.biographie);
+         if(form.$valid) {
 
            $scope.users.push({
               nom: $scope.nom,
@@ -78,8 +80,9 @@
 
            $scope.nom =  $scope.sexe = $scope.ville =  $scope.biographie = $scope.prenom = $scope.age = $scope.photo = $scope.dob = $scope.noteauBac = "";
 
+         }else{
+           console.log("Formulaire invalide", form);
          }
-
 
        }
 

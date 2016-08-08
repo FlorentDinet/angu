@@ -1,0 +1,64 @@
+<div class="users" ng-controller="UsersCtrl">
+
+	 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Game_of_Thrones_2011_logo.svg" alt="" />
+
+	 <ng-include src="'./partials/filters.html'"></ng-include>
+
+
+		<hr class="clearfix clear">
+
+		<!-- display all users -->
+		 <section class="row" ng-show="nbUsers > 0">
+			 <div class="blog-card" id="users">
+				 <div class="card z-depth-2 sticky-action col s3  sticky-action" ng-repeat="user in users | naissance:date | filter:cities|range:tranches|notes:notesBac|filter:search|orderBy:tri">
+
+						<div class="card-image waves-effect waves-block waves-light">
+							 <img class="responsive-img valign" src="{{ user.photo }}" alt="blog-img">
+						</div>
+
+						<ul class="card-action-buttons">
+								<li> <a class="btn-floating right btn-large waves-effect waves-light pink lighten-2"><i class="material-icons">favorite</i></a>
+								</li>
+								<li> <a class="btn-floating right btn-large waves-effect waves-light cyan"><i class="material-icons">plus_one</i></a>
+								</li>
+								<li> <a href="#/user/{{ user.prenom }}/{{ user.nom }}" class="btn-floating right btn-large waves-effect waves-light teal"><i class="material-icons">zoom_in</i></a>
+								</li>
+
+						</ul>
+						<div class="card-content">
+							<p class="card-title activator grey-text text-darken-4">{{ user.nom }} {{ user.prenom }}<i class="small material-icons right">more_vert</i></p>
+							<p><b>{{ user.sexe|sexe }}</b></p>
+							<p><i class="material-icons">cake</i> <b>{{ user.age }} ans</b></p>
+							<p><i class="material-icons">add_location</i> {{user.ville }}</p>
+							<small><i>Né le <b>{{ user.birthday|date:'dd/MM/yyyy' }} </b></small>
+						</div>
+						<div class="card-action">
+
+						 <a ng-click="removeUser(user)" class="waves-effect waves-light btn-large  red lighten-1"><i class="material-icons left">not_interested</i> Supprimer</a>
+						</div>
+					 <div class="card-reveal">
+						 <span class="card-title grey-text text-darken-4">Biographie<i class="material-icons right">close</i></span>
+						 <p>{{ user.biographie }}</p>
+					 </div>
+				 </div>
+			 </div>
+
+		 </section>
+		<!-- end display users -->
+
+		<!-- Display none users -->
+		<div class="row" ng-show="nbUsers == 0">
+			<div class="card red">
+					<div class="card-content white-text">
+						<p>Aucun utilisateurs :(</p>
+				</div>
+
+			</div>
+		</div>
+		<!-- end display none users -->
+
+		<hr class="clearfix clear">
+
+		<ng-include src="'./partials/form.html'"></ng-include>
+
+</div>

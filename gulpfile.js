@@ -69,7 +69,14 @@ gulp.task('css', function() {
 //For js
 gulp.task('js', function() {
   // Order By initi, filters, controllers...
-  return gulp.src(['src/app.js','src/filters.js', 'src/controllers/header.controllers.js', 'src/controllers/carnets.controllers.js'])
+  return gulp.src([
+    'src/app.js',
+    'src/routes.js',
+    'src/filters.js',
+    'src/controllers/header.controllers.js',
+    'src/controllers/contact.controllers.js',
+    'src/controllers/users.controllers.js',
+    'src/controllers/user.controllers.js'])
   .pipe(plumber({
     errorHandler: notify.onError("Error: <%= error.message %>")
   }))
