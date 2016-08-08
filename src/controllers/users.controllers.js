@@ -4,12 +4,12 @@
 
    var currentTime = new Date();
 
-
     // Bonus: charger les users by JSON
     // //edit from https://jsonblob.com/57a59a90e4b0dc55a4eae792
+    // befor: https://jsonblob.com/api/jsonBlob/57a59a90e4b0dc55a4eae792
      var users;
 
-      $http.get('https://jsonblob.com/api/jsonBlob/57a59a90e4b0dc55a4eae792')
+      $http.get('https://jsonblob.com/api/jsonBlob/57a86573e4b0dc55a4eb50a7')
       .success(function(response) {
          $scope.users = users = response;
          $scope.nbUsers = $scope.users.length;

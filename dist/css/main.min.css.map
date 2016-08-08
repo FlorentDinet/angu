@@ -1,1 +1,1 @@
-{"version":3,"sources":["main.sass"],"names":[],"mappings":"AAAA,aAEI,OAAA,KACA,WAAA","file":"main.min.css","sourcesContent":[".row {\n  .col.s3 {\n    margin: 10px;\n    box-sizing: border-box; } }\n"],"sourceRoot":"/source/"}
+{"version":3,"sources":["main.sass"],"names":[],"mappings":"AAAA,UAEI,OAAA,KACA,WAAA","file":"main.min.css","sourcesContent":[".row {\n  .col {\n    margin: 12px;\n    box-sizing: border-box; } }\n"],"sourceRoot":"/source/"}

@@ -76,7 +76,10 @@ gulp.task('js', function() {
     'src/controllers/header.controllers.js',
     'src/controllers/contact.controllers.js',
     'src/controllers/users.controllers.js',
-    'src/controllers/user.controllers.js'])
+    'src/controllers/user.controllers.js',
+    'src/controllers/map.controllers.js',
+    'src/controllers/maps.controllers.js',
+  ])
   .pipe(plumber({
     errorHandler: notify.onError("Error: <%= error.message %>")
   }))

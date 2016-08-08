@@ -4,10 +4,11 @@
 
 	 <ng-include src="'./partials/filters.html'"></ng-include>
 
+	 <a href="#/maps" class="right btn teal"><i class="material-icons">map</i> Voir la carte</a>
 		<!-- display all users -->
 		 <section class="row" ng-show="nbUsers > 0">
 			 <div class="blog-card" id="users">
-				 <div class="card z-depth-2 sticky-action col s3  sticky-action" ng-repeat="user in users | naissance:date | filter:cities|range:tranches|notes:notesBac|filter:search|orderBy:tri">
+				 <div class="card z-depth-2 sticky-action col s12 m6 l3 sticky-action" ng-repeat="user in users | naissance:date | filter:cities|range:tranches|notes:notesBac|filter:search|orderBy:tri">
 
 						<div class="card-image waves-effect waves-block waves-light">
 							 <img class="responsive-img valign" src="{{ user.photo }}" alt="blog-img">
@@ -29,9 +30,9 @@
 							<p><i class="material-icons">add_location</i> {{user.ville }}</p>
 							<small><i>Né le <b>{{ user.birthday|date:'dd/MM/yyyy' }} </b></small>
 						</div>
-						<div class="card-action">
-
-						 <a ng-click="removeUser(user)" class="waves-effect waves-light btn-large  red lighten-1"><i class="material-icons left">not_interested</i> Supprimer</a>
+						<div class="card-action row">
+							<a href="#/map/{{ user.geolocalisation.long }}/{{ user.geolocalisation.lat }}" class="waves-effect waves-light btn tead lighten-1  s6"><i class="material-icons">beenhere</i> Carte
+						 <a ng-click="removeUser(user)" class="waves-effect waves-light s6 btn red lighten-1"><i class="material-icons left">not_interested</i> Supprimer</a>
 						</div>
 					 <div class="card-reveal">
 						 <span class="card-title grey-text text-darken-4">Biographie<i class="material-icons right">close</i></span>

@@ -14,6 +14,14 @@ app.config(['$routeProvider',
             templateUrl: 'partials/users.html',
             controller: 'UsersCtrl'
         })
+        .when('/maps', {
+            templateUrl: 'partials/maps.html',
+            controller: 'MapCtrl'
+        })
+        .when('/map/:long/:lat', {
+            templateUrl: 'partials/map.html',
+            controller: 'MapCtrl'
+        })
         .when('/user/:prenom/:nom', {
             templateUrl: 'partials/user.html',
             controller: 'UserCtrl'

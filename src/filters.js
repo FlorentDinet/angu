@@ -50,12 +50,12 @@ app.filter('notes',function(){
              return elt.age >= 10 && elt.age <= 25;
           }));
         }
-        if(tranche.data === "25-45"){
+        else if(tranche.data === "25-45"){
           tabFilter.push(_.filter(tab, function(elt){
              return elt.age >= 25 && elt.age <= 45;
           }));
         }
-        if(tranche.data === "45-60"){
+        else if(tranche.data === "45-60"){
           tabFilter.push(_.filter(tab, function(elt){
              return elt.age >= 45 && elt.age <= 60;
           }));
@@ -63,6 +63,7 @@ app.filter('notes',function(){
 
       });
 
+    // concatener
     tabFilter = [].concat.apply([], tabFilter);
 
     return tabFilter;
