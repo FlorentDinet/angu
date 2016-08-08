@@ -42,19 +42,23 @@
              <div class="col s3">
               <label for="inputCreated">Date de naissance</label>
               <input input-date  placeholder="dd/mm/YYYY" type="text" name="created" id="inputCreated" ng-model="$parent.date" format="dd/mm/yyyy"
-          />
+              />
+             </div>
+             <div class="col s3">
+               <div class="input-field">
+                  <select class="select" id="tri"  ng-model="$parent.tri" material-select watch>
+                      <option value="">Trié les personnages</option>
+                      <option value="nom">Nom</option>
+                      <option value="age">Age</option>
+                      <option value="noteBac">Note au Bac</option>
+                      <option value="ville">Ville</option>
+                  </select>
+                <label for="tri"></label>
+              </div>
+
              </div>
            </div>
            </div>
-           <div class="input-field">
-              <select class="select" id="tri"  ng-model="$parent.tri" material-select watch>
-                  <option value="">Trié les personnages</option>
-                  <option value="nom">Nom</option>
-                  <option value="age">Age</option>
-                  <option value="noteBac">Note au Bac</option>
-                  <option value="ville">Ville</option>
-              </select>
-            <label for="tri"></label>
-          </div>
+
 </section>
   <!-- end filters -->
