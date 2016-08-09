@@ -17,6 +17,22 @@ app.filter('naissance',function(){
    };
 });
 
+app.filter('plus',function(){
+
+   return function(tab, id){
+
+
+     obj = _.find(tab, function(obj) { return obj.id == id })
+
+     if(obj === undefined){
+          return false;
+     }
+     console.log(obj.compteur);
+
+     return obj.compteur;
+   };
+});
+
 app.filter('notes',function(){
 
    return function(tableau, note){

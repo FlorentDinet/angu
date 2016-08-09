@@ -76,7 +76,7 @@
 							 </div>
 						 </div>
 						 <div class="input-field col s9">
-							 <input ng-model="$parent.photo" name="photo" pattern="/^https?:\/\/.*\.(png|gif|jpe?g)$/i" ng-trim="true" id="photo" required type="text" class="validate">
+							 <input ng-model="$parent.photo" name="photo" pattern="^https?:\/\/.*\.(png|gif|jpe?g)$" ng-trim="true" id="photo" required type="text" class="validate">
 							 <label for="photo">Photo</label>
 							 <div class="help-block"  ng-messages="myForm.photo.$error" ng-if="myForm.$submitted">
 									<div ng-messages-include="./partials/erreurs.html"></div>
@@ -123,7 +123,7 @@
 						</div>
 
 						 <div class="input-field col 12">
-							<button type="submit" class="waves-effect waves-light btn" name="button">Enregistrer cet utilisateurs</button>
+							<button ng-disabled="!myForm.$valid" type="submit" class="waves-effect waves-light btn" name="button">Enregistrer cet utilisateurs</button>
 						 </div>
 					 </div>
 				 </form>

@@ -1,5 +1,7 @@
 
- app.controller('UsersCtrl', ['$scope','$filter','$http', function($scope, $filter,$http){
+ app.controller('UsersCtrl', ['$scope','$filter','$http','$cookies',
+  function($scope, $filter,$http, $cookies){
+
 
 
    var currentTime = new Date();
@@ -9,7 +11,10 @@
     // befor: https://jsonblob.com/api/jsonBlob/57a59a90e4b0dc55a4eae792
      var users;
 
-      $http.get('https://jsonblob.com/api/jsonBlob/57a86573e4b0dc55a4eb50a7')
+     var myOnes = $scope.myOnes =  ($cookies.get('myOnes')) ?  $cookies.myOnes : [] ;
+
+
+      $http.get('https://jsonblob.com/api/jsonBlob/57a8d915e4b0dc55a4eb7378')
       .success(function(response) {
          $scope.users = users = response;
          $scope.nbUsers = $scope.users.length;
@@ -27,6 +32,30 @@
      $scope.tousMineur = function (){
         return _.every($scope.users,function(user) {return user.age < 18;})
      };
+
+
+     $scope.onePlus = function (id){
+       var myOnes = $scope.myOnes =  JSON.parse($cookies.get('myOnes'));
+
+      obj = _.find(myOnes, function(obj) { return obj.id == id })
+
+      // console.log(myOnes, _.findWhere(myOnes,{id: id}));
+      if(obj === undefined){
+          // initialize myOne
+          myOnes.push({
+            "id": id, "compteur": 1
+          });
+      }else{
+          // update myOne
+          obj.compteur =   obj.compteur + 1
+      }
+
+        console.log(myOnes);
+      // Setting a cookie
+      $cookies.put('myOnes', JSON.stringify(obj))
+     };
+
+
 
      $scope.moyenneAge = function() {
          var naissanceFilter = $filter('naissance');

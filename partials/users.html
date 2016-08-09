@@ -17,7 +17,10 @@
 						<ul class="card-action-buttons">
 								<li> <a class="btn-floating right btn-large waves-effect waves-light pink lighten-2"><i class="material-icons">favorite</i></a>
 								</li>
-								<li> <a class="btn-floating right btn-large waves-effect waves-light cyan"><i class="material-icons">plus_one</i></a>
+								<li> <a ng-click="onePlus(user.id)" class="btn-floating right btn-large waves-effect waves-light cyan">
+									<i class="material-icons">plus_one</i>
+									<!-- <i ng-show="myOnes|plus:user.id == true"  class="material-icons">{{ myOnes|plus }}</i> -->
+								</a>
 								</li>
 								<li> <a href="#/user/{{ user.prenom }}/{{ user.nom }}" class="btn-floating right btn-large waves-effect waves-light teal"><i class="material-icons">zoom_in</i></a>
 								</li>
