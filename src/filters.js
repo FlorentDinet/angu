@@ -46,7 +46,7 @@ app.filter('mineur',function () {
 
 
       // Rangement des majeurs et mineurs
-      for (user of tableau) {
+      _.each(tableau, function(user) {
 
         if (user.age >= 18) {
           majeurs.push(user);
@@ -55,9 +55,7 @@ app.filter('mineur',function () {
           mineurs.push(user);
         }
 
-      }
-
-
+      });
 
     //Si switch coché
     if (checked == false) {
@@ -95,8 +93,6 @@ app.filter('plus',function(){
      if(obj === undefined){
           return false;
      }
-     console.log(obj.compteur);
-
      return obj.compteur;
    };
 });
@@ -176,8 +172,6 @@ app.filter('search', function() { // creation filtre les note bac
         if (note === "" || note === undefined ) { // si la saisie du champ est a 0 jreturn tt
           return matches;
         }
-
-        console.log(regex);
 
         angular.forEach(matches, function(match, key) { // boucle qui va rechercher le tableau d'objet
             var nom = match.nom; // recup nom de l user

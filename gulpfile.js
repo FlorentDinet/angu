@@ -86,7 +86,7 @@ gulp.task('js', function() {
   }))
     .pipe(concat('app.min.js'))
     .pipe(ngmin())
-    // .pipe(uglify()) //minify js
+    .pipe(uglify()) //minify js
     .pipe(gulp.dest('dist/js'))
     .pipe(notify("Angular Modifié"))
     .pipe(reload({stream:true}));
