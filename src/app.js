@@ -1,7 +1,7 @@
 /**
  * Load my app...
  */
-var app = angular.module('MyApp', ["ngAnimate", 'ui.materialize', 'ngMessages', 'ngRoute', 'uiGmapgoogle-maps', 'angular-loading-bar', 'ngCookies']);
+var app = angular.module('MyApp', ["ngAnimate", 'ui.materialize', 'ngMessages', 'ngRoute', 'uiGmapgoogle-maps', 'angular-loading-bar', 'ngCookies', 'ui.router']);
 
 /**
  * Configure service
