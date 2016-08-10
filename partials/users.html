@@ -8,7 +8,7 @@
 		<!-- display all users -->
 		 <section class="row" ng-show="nbUsers > 0">
 			 <div class="blog-card" id="users">
-				 <div class="card z-depth-2 sticky-action col s12 m6 l3 sticky-action" ng-repeat="user in users | naissance:date | filter:cities|range:tranches|notes:notesBac|filter:search|orderBy:tri">
+				 <div class="card z-depth-2 sticky-action col s12 m6 l3 sticky-action" ng-class="{red: user.noteBac < 10}" ng-repeat="user in users | naissance:date | filter:cities|departement:dep|search:searchText|range:tranches|notes:notesBac|mineur:selectedSwitch|filter:search|orderBy:tri">
 
 						<div class="card-image waves-effect waves-block waves-light">
 							 <img class="responsive-img valign" src="{{ user.photo }}" alt="blog-img">
@@ -29,7 +29,12 @@
 						<div class="card-content">
 							<p class="card-title activator grey-text text-darken-4">{{ user.nom }} {{ user.prenom }}<i class="small material-icons right">more_vert</i></p>
 							<p><b>{{ user.sexe|sexe }}</b></p>
-							<p><i class="material-icons">cake</i> <b>{{ user.age }} ans</b></p>
+
+							<p>
+								<img src="{{ user.langue | drapeau }}"/>
+								{{ user.codepostal }}
+							</p>
+							<p><i ng-class="{'swing': anniv(user.birthday)}" class="animated material-icons infinite">cake</i> <b>{{ user.age }} ans</b></p>
 							<p><i class="material-icons">add_location</i> {{user.ville }}</p>
 							<small><i>Né le <b>{{ user.birthday|date:'dd/MM/yyyy' }} </b></small>
 						</div>

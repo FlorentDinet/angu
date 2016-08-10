@@ -31,6 +31,18 @@
           </div>
         </div>
 
+        <div class="row s12 switch">
+            <input placeholder="Search anything anywhere..." type="text" ng-model="$parent.searchText" required>
+        </div>
+        <div class="row s12 switch">
+          <label>
+            Mineur
+            <input type="checkbox" ng-model="$parent.selectedSwitch" />
+            <span class="lever"></span>
+            Majeur
+          </label>
+        </div>
+
         <div class="row">
            <div class="row">
              <div class="col s8">
@@ -42,6 +54,11 @@
              <div class="col s3">
               <label for="inputCreated">Date de naissance</label>
               <input input-date  placeholder="dd/mm/YYYY" type="text" name="created" id="inputCreated" ng-model="$parent.date" format="dd/mm/yyyy"
+              />
+             </div>
+             <div class="col s3">
+              <label for="inputCreated">Departement</label>
+              <input   placeholder="ex: 75" maxlength="2" type="text" name="created" id="inputCreated" ng-model="$parent.dep" 
               />
              </div>
              <div class="col s3">

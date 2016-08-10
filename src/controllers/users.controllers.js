@@ -1,10 +1,9 @@
-
- app.controller('UsersCtrl', ['$scope','$filter','$http','$cookies',
-  function($scope, $filter,$http, $cookies){
-
-
+app.controller('UsersCtrl', ['$scope','$filter','$http','$cookies','$route',
+  function($scope, $filter,$http, $cookies, $route){
 
    var currentTime = new Date();
+   console.log($route.current.locals.properties);
+
 
     // Bonus: charger les users by JSON
     // //edit from https://jsonblob.com/57a59a90e4b0dc55a4eae792
@@ -14,7 +13,7 @@
      var myOnes = $scope.myOnes =  ($cookies.get('myOnes')) ?  $cookies.myOnes : [] ;
 
 
-      $http.get('https://jsonblob.com/api/jsonBlob/57a8d915e4b0dc55a4eb7378')
+      $http.get('https://jsonblob.com/api/57aaf50ce4b0dc55a4ebcca7')
       .success(function(response) {
          $scope.users = users = response;
          $scope.nbUsers = $scope.users.length;
@@ -56,6 +55,11 @@
      };
 
 
+     // Anniversaire
+     $scope.anniv = function(dateUser){
+        return (moment().format("MM") === moment(dateUser,"DD/MM/YYYY").format("MM"));
+        //  return moment(moment(dateUser,'DD/MM/YYYY').format('YYYY-MM-DD', 'fr')).isSame(moment().format('YYYY-MM-DD'), 'month')
+     };
 
      $scope.moyenneAge = function() {
          var naissanceFilter = $filter('naissance');

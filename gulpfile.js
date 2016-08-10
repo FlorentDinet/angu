@@ -71,6 +71,7 @@ gulp.task('js', function() {
   // Order By initi, filters, controllers...
   return gulp.src([
     'src/app.js',
+    'src/services/user.factory.js',
     'src/routes.js',
     'src/filters.js',
     'src/controllers/header.controllers.js',
@@ -106,6 +107,6 @@ gulp.task('images', function() {
 gulp.task('default', ['css','js', 'browser-sync'], function () {
     gulp.watch("assets/sass/*.sass", ['css']);
     gulp.watch("assets/images/", ['images']);
-    gulp.watch(["src/*.js","src/controllers/*.js"], ['js']);
+    gulp.watch(["src/*.js","src/controllers/*.js","src/services/*.js"], ['js']);
     gulp.watch(["*.html", "partials/*.html"]).on('change', browserSync.reload); //reload on HTML
 });

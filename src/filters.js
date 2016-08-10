@@ -2,6 +2,74 @@
  * All Filters of you needs...
  * @Damien: Noublies pas de faire lefiltre ville.... :p
  */
+ app.filter('departement',function(){
+
+   return function(tableau, dpt){
+         if(!dpt){
+            return tableau;
+         }
+
+         return  _.filter(tableau, function(use){
+              return use.codepostal.toString().substr(0,2) == dpt.substr(0,2)
+         });
+
+   };
+ });
+
+ app.filter('drapeau', function(){
+   	return function(langue){
+       switch (langue) {
+         case "es":
+          return "http://www.europetrotteur.com/images/drapeau_Espagne.png";
+         case "en":
+          return "http://www.europetrotteur.com/images/drapeau_United%20Kingdom.png";
+         case "it":
+          return "http://www.europetrotteur.com/images/drapeau_Italie.png";
+         case "fr":
+            return "http://www.europetrotteur.com/images/drapeau_France.png";
+         default:
+         return   "http://flags-and-anthems.com/images/flags/flag-switzerland-flagge-quadratischweiss-13x13.gif";
+       }
+     };
+	});
+
+
+app.filter('mineur',function () {
+    return function (tableau, checked) {
+
+      var majeurs = []; //tableau des majeurs
+      var mineurs = []; //tableaud des mineurs
+
+      if (checked == undefined) {
+        return tableau;
+      }
+
+
+      // Rangement des majeurs et mineurs
+      for (user of tableau) {
+
+        if (user.age >= 18) {
+          majeurs.push(user);
+        }
+        else {
+          mineurs.push(user);
+        }
+
+      }
+
+
+
+    //Si switch coché
+    if (checked == false) {
+      checked = true; //variable drapeau
+      return mineurs;
+    }
+
+      checked = false;
+      return majeurs;
+    };
+});
+
 
 app.filter('naissance',function(){
 
@@ -98,6 +166,32 @@ app.filter('sexe',function(){
 
    };
 });
+
+
+app.filter('search', function() { // creation filtre les note bac
+
+    return function(matches, note) {
+        var result = [];// tableau d objet filtrer à retourner
+        var regex = new RegExp(note, 'i'); // recup  de la saisie en conversion Regex
+        if (note === "" || note === undefined ) { // si la saisie du champ est a 0 jreturn tt
+          return matches;
+        }
+
+        console.log(regex);
+
+        angular.forEach(matches, function(match, key) { // boucle qui va rechercher le tableau d'objet
+            var nom = match.nom; // recup nom de l user
+            var prenom = match.prenom;// recup prenom de l user
+
+            if (regex.test(nom +" " +prenom)) { // verif si le champ correspond a nom ou prenom et le return
+                 result.push(match);
+            }
+        });
+
+        return result; // return le tableau filtrer
+    };
+});
+
 
 app.filter('age',function(){
 
